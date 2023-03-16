@@ -1,0 +1,23 @@
+.choice-panel {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+
+
+.words {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    // border-top: 1px white solid;
+
+    .word {
+        font-size: max(1.5vw, 16px);
+        margin: 10px 0;
+    }
+}
