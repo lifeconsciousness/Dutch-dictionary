@@ -2,10 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import data from './data/words.json'
 import SecondSearch from './components/SecondSearch'
 import ChoicePanel from './components/ChoicePanel'
-import Nouns from './components/Nouns'
-import Verbs from './components/Verbs'
-import Adjectives from './components/Adjectives'
-import Sentences from './components/Sentences'
+import Words from './components/Words'
+
 
 //make animation (rolling of big words) that plays with delay after you typed something (if something was typed earlier the animation does not occur and timer is resent)
 //Nederlands wordenboek switches between languages or displays word in Dutch and English
@@ -15,17 +13,7 @@ import Sentences from './components/Sentences'
 function App() {
   const searchRef = useRef(null)
   const [section, setSection] = useState(0)
-  const wordsContainer = document.querySelector('.words')
-  // const wordsChildren = Array.from(wordsContainer.children) 
-
-
-  const handleInput = (e) => {
-    const value = e.target.value
-
-    // wordsChildren.map((word) => {
-    //   console.log(word)
-    // })
-  }
+  const [search, setSearch] = useState('')
 
   const handleChoicePanel = (value) => {
     setSection(value)
@@ -38,7 +26,7 @@ function App() {
 
       <div className="title-and-search">
         <div className={`search-wrapper`} ref={searchRef}>
-          <input className='search-field' type="text" placeholder='Zoeken...' onInput={handleInput}/>
+          <input className='search-field' type="text" placeholder='Zoeken...' onInput={(e) => {setSearch(e.target.value)}}/>
 
           <div className="clear-input" onClick={() => {
             const search = document.querySelector('.search-field')
@@ -55,15 +43,15 @@ function App() {
       <div className="words">
         
         { section === 0 ? <>
-          <Nouns />
-          <Verbs />
-          <Adjectives />
-          <Sentences />
+          <Words wordsType={data.nouns} search={search}/>
+          <Words wordsType={data.verbs} search={search}/>
+          <Words wordsType={data.adjectives} search={search}/>
+          <Words wordsType={data.sentences} search={search}/>
         </> : null }
-        { section === 1 ? <Nouns /> : null }
-        { section === 2 ? <Verbs /> : null }
-        { section === 3 ? <Adjectives /> : null }
-        { section === 4 ? <Sentences /> : null }
+        { section === 1 ? <Words wordsType={data.nouns} search={search} /> : null }
+        { section === 2 ? <Words wordsType={data.verbs} search={search} /> : null }
+        { section === 3 ? <Words wordsType={data.adjectives} search={search} /> : null }
+        { section === 4 ? <Words wordsType={data.sentences} search={search} /> : null }
 
       </div>
 
