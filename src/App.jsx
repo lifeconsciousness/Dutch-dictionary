@@ -8,8 +8,6 @@ import Adjectives from './components/Adjectives'
 import Sentences from './components/Sentences'
 
 //make animation (rolling of big words) that plays with delay after you typed something (if something was typed earlier the animation does not occur and timer is resent)
-//delete text in search button
-//switching between the types of words and coloring the buttons
 //Nederlands wordenboek switches between languages or displays word in Dutch and English
 //maybe add some floating gradient to the word Nederlands (check codepen in email for the ideas or just google)
 //adding a new words via firebase or json file
@@ -17,9 +15,16 @@ import Sentences from './components/Sentences'
 function App() {
   const searchRef = useRef(null)
   const [section, setSection] = useState(0)
+  const wordsContainer = document.querySelector('.words')
+  // const wordsChildren = Array.from(wordsContainer.children) 
+
 
   const handleInput = (e) => {
     const value = e.target.value
+
+    // wordsChildren.map((word) => {
+    //   console.log(word)
+    // })
   }
 
   const handleChoicePanel = (value) => {
@@ -47,23 +52,18 @@ function App() {
       <ChoicePanel onClick={handleChoicePanel}/>
       
       
-
-
-
       <div className="words">
         
-      { section === 0 ? <>
-        <Nouns />
-        <Verbs />
-        <Adjectives />
-        <Sentences />
-      </> : null }
-      { section === 1 ? <Nouns /> : null }
-      { section === 2 ? <Verbs /> : null }
-      { section === 3 ? <Adjectives /> : null }
-      { section === 4 ? <Sentences /> : null }
-
-       
+        { section === 0 ? <>
+          <Nouns />
+          <Verbs />
+          <Adjectives />
+          <Sentences />
+        </> : null }
+        { section === 1 ? <Nouns /> : null }
+        { section === 2 ? <Verbs /> : null }
+        { section === 3 ? <Adjectives /> : null }
+        { section === 4 ? <Sentences /> : null }
 
       </div>
 
