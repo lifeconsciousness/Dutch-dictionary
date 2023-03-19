@@ -1,0 +1,51 @@
+// .dictionary-title {
+//     // overflow: hidden;
+// }
+
+// .title-text {
+//     overflow: hidden;
+//     // animation: titleAnimation 1s infinite;
+// }
+
+// @keyframes titleAnimation {
+//     0% {
+//         transform: translateY(100%);
+//     }
+
+//     60% {
+//         transform: translateY(100%);
+//     }
+
+//     100% {
+//         transform: translateY(0);
+//     }
+// }
+
+
+
+.title-text {
+
+    h1 {
+        overflow: hidden;
+
+
+        span {
+            transform: translateY(100px);
+            // animation: greetingsAnimation 1.6s ease-in-out infinite;
+        }
+    }
+
+    @keyframes greetingsAnimation {
+        0% {
+            transform: translateY(100%);
+        }
+
+        60% {
+            transform: translateY(100%);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+}

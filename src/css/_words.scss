@@ -7,6 +7,7 @@
 
     button {
         margin-right: 3px;
+        color: white;
     }
 }
 
@@ -20,7 +21,9 @@
     // border-top: 1px white solid;
 
     .word {
-        font-size: max(1.5vw, 16px);
+        font-size: max(1.2vw, 16px);
         margin: 10px 0;
+        text-align: center;
+        padding: 0 20px;
     }
 }

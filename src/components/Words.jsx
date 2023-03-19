@@ -6,7 +6,8 @@ function Words({wordsType, search}) {
         {
             wordsType.
             filter((item) => {
-              return search.toLowerCase() === '' ? item : item.toLowerCase().includes(search) || search === '' ? item : item.includes(search)
+              //filter returns only the elements that have value from search in them
+              return search === '' ? item : item.toLowerCase().includes(search.toLowerCase());
             }).
             map((word, index) => (
                 <div key={index}>
