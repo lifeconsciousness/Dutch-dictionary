@@ -28,6 +28,7 @@ body {
   margin: 0;
   min-height: 201vh;
   width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -63,3 +64,4 @@ button:focus-visible {
 @import './css/title';
 @import './css/searchbar';
 @import './css/words';
+@import './css/cursorCircle';

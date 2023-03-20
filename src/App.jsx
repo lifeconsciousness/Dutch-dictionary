@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import data from './data/words.json'
 import SecondSearch from './components/SecondSearch'
+import CursorCircle from './components/CursorCircle'
 import ChoicePanel from './components/ChoicePanel'
 import Words from './components/Words'
 
@@ -20,11 +21,11 @@ function App() {
   const handleChoicePanel = (value) => {
     setSection(value)
   }
-
   
   return (
     <div className="App">
       {/* <SecondSearch offsetTop={searchRef.current}/> */}
+      <CursorCircle />
 
       <div className="title-and-search">
         <div className={`search-wrapper`} ref={searchRef}>
@@ -47,12 +48,12 @@ function App() {
       <div className="words">
         
         { section === 0 ? <>
-          <Words wordsType={data.nouns} search={search}/>
-          <Words wordsType={data.verbs} search={search}/>
-          <Words wordsType={data.adjectives} search={search}/>
-          <Words wordsType={data.adverbs} search={search}/>
-          <Words wordsType={data.prepositions} search={search}/>
           <Words wordsType={data.sentences} search={search}/>
+          <Words wordsType={data.nouns} search={search}/>
+          <Words wordsType={data.adjectives} search={search}/>
+          <Words wordsType={data.verbs} search={search}/>
+          <Words wordsType={data.prepositions} search={search}/>
+          <Words wordsType={data.adverbs} search={search}/>
         </> : null }
         { section === 1 ? <Words wordsType={data.nouns} search={search} /> : null }
         { section === 2 ? <Words wordsType={data.verbs} search={search} /> : null }
