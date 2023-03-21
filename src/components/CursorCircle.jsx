@@ -1,10 +1,9 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 
-type Props = {}
 
-function CursorCircle({ }: Props) {
-    const [cursorPos, setCursorPos] = useState<number[]>([])
+function CursorCircle() {
+    const [cursorPos, setCursorPos] = useState([])
 
     useEffect(() => {
         const handleMouseMove = (e) => {

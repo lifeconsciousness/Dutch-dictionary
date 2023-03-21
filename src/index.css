@@ -26,6 +26,7 @@ body {
   margin: 0;
   min-height: 201vh;
   width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -87,7 +88,7 @@ button:focus-visible {
 }
 @media (min-width: 815px) {
   .title-and-search {
-    transform: scale(0.7);
+    transform: scale(0.65);
   }
   .title-and-search .search-wrapper {
     width: 80vmin;
@@ -110,9 +111,9 @@ button:focus-visible {
   .title-and-search .search-wrapper {
     width: 80vmin;
     margin-bottom: 2rem;
+    order: 1;
   }
   .title-and-search .dictionary-title {
-    order: -1;
     margin-top: 0;
     text-align: center;
     border: none;
@@ -162,7 +163,7 @@ button:focus-visible {
 
 @media (max-width: 815px) {
   .clear-input {
-    bottom: -11%;
+    bottom: -13%;
   }
 }
 .clear-input:active {
@@ -225,10 +226,43 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
+  padding-bottom: 4rem;
 }
 .words .word {
   font-size: max(1.2vw, 16px);
   margin: 10px 0;
   text-align: center;
-  padding: 0 10px;
+  padding: 0 20px;
+}
+
+.cursor-circle {
+  background-color: #646cff;
+  height: 270px;
+  aspect-ratio: 1;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.sortWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.sortWrapper #sortWords {
+  font-family: inherit;
+  height: 35px;
+  font-size: 0.95rem;
+  outline: none;
+  border-color: #535bf2;
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 8px;
+}
+.sortWrapper #sortWords option {
+  width: 50px;
 }/*# sourceMappingURL=index.css.map */
