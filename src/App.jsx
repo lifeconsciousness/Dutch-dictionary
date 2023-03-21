@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
-import data from './data/words.json'
 import SecondSearch from './components/SecondSearch'
 import CursorCircle from './components/CursorCircle'
 import ChoicePanel from './components/ChoicePanel'
-import Words from './components/Words'
+import SelectSort from './components/SelectSort'
+import WordsContainer from './components/WordsContainer'
 
 
 //make animation (rolling of big words) that plays with delay after you typed something (if something was typed earlier the animation does not occur and timer is resent)
@@ -25,7 +25,6 @@ function App() {
   const handleOptions = (e) => {
     setSort(e.target.value)
   }
-  const [selectClassName, setSelectClassName] = useState('')
   
   return (
     <div className="App">
@@ -50,35 +49,9 @@ function App() {
 
       <ChoicePanel onClick={handleChoicePanel}/>
 
-      <div className="sortWrapper">
-        <select name="sortWords" id="sortWords" onChange={handleOptions} className={selectClassName} onClick={() => {
-          selectClassName === '' ? setSelectClassName('select-open') : setSelectClassName('')
-        }}>
-          <option value="old-new">Oldest-newest</option>
-          <option value="new-old">Newest-oldest</option>
-          <option value="a-z">Alphabetical order</option>
-          <option value="z-a">Alphabetical reversed</option>
-        </select>
-      </div>
+      <SelectSort  handleFunc={handleOptions}/>
       
-      <div className="words">
-        
-        { section === 0 ? <>
-          <Words wordsType={data.sentences} search={search} sort={sort}/>
-          <Words wordsType={data.nouns} search={search} sort={sort}/>
-          <Words wordsType={data.adjectives} search={search} sort={sort}/>
-          <Words wordsType={data.verbs} search={search} sort={sort}/>
-          <Words wordsType={data.prepositions} search={search} sort={sort}/>
-          <Words wordsType={data.adverbs} search={search} sort={sort}/>
-        </> : null }
-        { section === 1 ? <Words wordsType={data.nouns} search={search} sort={sort} /> : null }
-        { section === 2 ? <Words wordsType={data.verbs} search={search} sort={sort} /> : null }
-        { section === 3 ? <Words wordsType={data.adjectives} search={search} sort={sort} /> : null }
-        { section === 4 ? <Words wordsType={data.adverbs} search={search} sort={sort} /> : null }
-        { section === 5 ? <Words wordsType={data.prepositions} search={search} sort={sort} /> : null }
-        { section === 6 ? <Words wordsType={data.sentences} search={search} sort={sort} /> : null }
-
-      </div>
+      <WordsContainer section={section} search={search} sort={sort}/>
 
     </div>
   )
